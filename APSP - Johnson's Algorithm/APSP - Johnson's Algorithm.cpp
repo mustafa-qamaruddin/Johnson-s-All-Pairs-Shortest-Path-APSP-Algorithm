@@ -5,18 +5,24 @@
 #include <iostream>
 #include "Graph.h"
 #include "APSP.h"
+#include <sstream>
 
 using namespace std;
 
 int main()
 {
 	cout << "Operation APSP Started" << endl;
-	MQ::Graph g;
-	g.readFromFile("TCs/g1.txt");
-	g.print();
-	MQ::APSP apsp;
-	apsp.johnson(g);
-	cout << "Operation APSP Terminated" << endl;
+	for (int i = 3; i <= 3; i++)
+	{
+		cout << "TEST CASE #" << i << endl;
+		MQ::Graph g;
+		ostringstream ss;
+		ss << "TCs/g" << i << ".txt";
+		g.readFromFile(ss.str());
+		MQ::APSP apsp;
+		cout << "Minimum Pair: " << apsp.johnson(g);
+		cout << endl << endl;
+	}
+	cout << "Operation APSP Terminated" << endl << endl;
     return 0;
 }
-
